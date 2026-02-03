@@ -20,6 +20,6 @@ function(Zlist, nalist, Psi)  {
   Psi <- getList(Psi)
   lapply(seq_along(Zlist), function(i)
     sumList(lapply(seq_along(Psi),function(j)
-      bdiagMat(lapply(Zlist[[i]][[j]],function(x)
+      mixmeta::bdiagMat(lapply(Zlist[[i]][[j]],function(x)
         x%*%Psi[[j]]%*%t(x))))))
 }

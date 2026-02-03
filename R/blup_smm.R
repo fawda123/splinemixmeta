@@ -69,7 +69,7 @@ blup.splinemixmeta <- function (object, se = FALSE, pi = FALSE, vcov = FALSE, pi
         i], gp, function(xi) length(unique(xi)))))
     nay <- is.na(y)
     if (any(nay)) {
-        yS <- inputna(y, S)
+        yS <- mixmeta::inputna(y, S)
         y <- yS[, seq(k), drop = FALSE]
         S <- yS[, -seq(k), drop = FALSE]
         nay[nay] <- FALSE
@@ -126,7 +126,7 @@ blup.splinemixmeta <- function (object, se = FALSE, pi = FALSE, vcov = FALSE, pi
             k - k + 1, i * k))
         blup <- rbindList(lapply(seqlist, function(x) blup[x[1]:x[2],
             ]), k)
-        V <- rbindList(lapply(seqlist, function(x) vechMat(V[x[1]:x[2],
+        V <- rbindList(lapply(seqlist, function(x) mixmeta::vechMat(V[x[1]:x[2],
             x[1]:x[2]])), k * (k + 1)/2)
         stderr <- rbindList(lapply(seqlist, function(x) stderr[x[1]:x[2]]),
             k)
@@ -194,7 +194,7 @@ blup.splinemixmeta <- function (object, se = FALSE, pi = FALSE, vcov = FALSE, pi
                 temp[c("pi.lb", "pi.ub")] <- list(pilb[i, ],
                   piub[i, ])
             if (vcov) {
-                temp$vcov <- xpndMat(V[i, ])
+                temp$vcov <- mixmeta::xpndMat(V[i, ])
                 dimnames(temp$vcov) <- list(object$lab$k, object$lab$k)
             }
             temp <- lapply(temp, function(x) if (any(is.na(x)))

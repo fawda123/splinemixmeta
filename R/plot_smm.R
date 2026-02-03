@@ -1,6 +1,6 @@
 #' Plot results from a univariate `splinemixmeta` model
 #'
-#' @param object object of class `mixmeta` returned from `splinemixmeta`
+#' @param x object of class `mixmeta` returned from `splinemixmeta`
 #' @param xvar xvar name of variable to plot on the horizontal axis.
 #' @param title title to add to the plot
 #' @param xlab xlab label for the horizontal axis
@@ -22,12 +22,12 @@
 #' 
 #' @returns ggplot2 object
 #' @export
-plot.splinemixmeta <- function(object, xvar, title, xlab, ylab, ylim, linecolor = "blue", fillcolor = "blue", ...) {
+plot.splinemixmeta <- function(x, xvar, title, xlab, ylab, ylim, linecolor = "blue", fillcolor = "blue", ...) {
 
-  if(!inherits(object, "splinemixmeta"))
-    stop("object must be of class 'splinemixmeta'")
+  if(!inherits(x, "splinemixmeta"))
+    stop("x must be of class 'splinemixmeta'")
   if(missing(xvar)) {
-    xvar_expr <- object$formula[[3]]
+    xvar_expr <- x$formula[[3]]
     if(!is.name(xvar_expr))
       stop("Please provide xvar. A default xvar could not be chosen.")
   } else {
@@ -35,23 +35,23 @@ plot.splinemixmeta <- function(object, xvar, title, xlab, ylab, ylim, linecolor 
   }
   xvar <- as.character(xvar_expr)
   if(missing(xlab)) xlab <- xvar
-  pred <- predict.splinemixmeta(object, ...)
-  xdata <- object$model[[xvar]]
+  pred <- predict.splinemixmeta(x, ...)
+  xdata <- x$model[[xvar]]
   order <- order(xdata)
-  yvar_expr <- object$formula[[2]]
+  yvar_expr <- x$formula[[2]]
   if(missing(ylab)) ylab <- as.character(yvar_expr)
-  ydata <- object$model[[as.character(yvar_expr)]]
+  ydata <- x$model[[as.character(yvar_expr)]]
   xdata <- xdata[order]
   ydata <- ydata[order]
   pred <- pred[order, , drop=FALSE]
-  se <- (if(is.matrix(object$S)) diag(object$S) else object$S) |> sqrt()
+  se <- (if(is.matrix(x$S)) diag(x$S) else x$S) |> sqrt()
   se <- se[order]
   df <- data.frame(x_plot_ = xdata,
                    y_plot_ = ydata,
                    se_plot_ = se,
                    mmpred_ = pred[,'blup'],
                    mmse_ = pred[,'se'])
-  df <- cbind(df, object$model[order, , drop=FALSE])
+  df <- cbind(df, x$model[order, , drop=FALSE])
   aesmm <- ggplot2::aes(x = x_plot_, y = mmpred_)
   fig <- ggplot2::ggplot(df, ggplot2::aes(x = x_plot_, y = y_plot_)) +
     ggplot2::geom_errorbar(ggplot2::aes(ymin = y_plot_ - 2*se_plot_, ymax = y_plot_ + 2*se_plot_)) +

@@ -18,8 +18,8 @@ function(S, nay, groups, m, k, addSlist=NULL, checkPD=NULL) {
 #
     # CREATE THE LIST
     Slist <- lapply(seq(m),function(i)
-      bdiagMat(lapply(which(groups[,1]%in%i),function(j)
-        xpndMat(S[j,])[!nay[j,],!nay[j,],drop=FALSE])))
+      mixmeta::bdiagMat(lapply(which(groups[,1]%in%i),function(j)
+        mixmeta::xpndMat(S[j,])[!nay[j,],!nay[j,],drop=FALSE])))
     if(any(is.na(unlist(Slist))))
       stop("missing pattern in 'y' and S' is not consistent")
 #

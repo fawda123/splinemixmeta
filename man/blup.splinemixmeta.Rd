@@ -4,7 +4,7 @@
 \alias{blup.splinemixmeta}
 \title{Obtain predictions (BLUPs) from a \code{splinemixmeta} object}
 \usage{
-\method{blup}{splinemixmeta}(
+blup.splinemixmeta(
   object,
   se = FALSE,
   pi = FALSE,

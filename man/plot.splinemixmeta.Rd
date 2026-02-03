@@ -5,7 +5,7 @@
 \title{Plot results from a univariate \code{splinemixmeta} model}
 \usage{
 \method{plot}{splinemixmeta}(
-  object,
+  x,
   xvar,
   title,
   xlab,
@@ -17,7 +17,7 @@
 )
 }
 \arguments{
-\item{object}{object of class \code{mixmeta} returned from \code{splinemixmeta}}
+\item{x}{object of class \code{mixmeta} returned from \code{splinemixmeta}}
 
 \item{xvar}{xvar name of variable to plot on the horizontal axis.}
 
