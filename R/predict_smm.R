@@ -16,6 +16,8 @@
 #'  of the fitted mixmeta object correspond to which parts of the model. For more fine-grained control (such as including one spline
 #'  term but not another), one can use `mixmeta::blup()` directly.
 #'
+#' @method predict splinemixmeta
+#' 
 #' @export
 predict.splinemixmeta <- function(object, include_smooths = TRUE,
                         include_REs = FALSE, include_residuals = FALSE, type = "outcome") {

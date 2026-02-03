@@ -32,6 +32,8 @@
 \item{linecolor}{color for the prediction line}
 
 \item{fillcolor}{color for the prediction confidence band}
+
+\item{...}{additional arguments passed to \code{predict.splinemixmeta()}}
 }
 \value{
 ggplot2 object

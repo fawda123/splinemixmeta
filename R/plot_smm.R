@@ -8,6 +8,7 @@
 #' @param ylim ylim limits for the vertical axis
 #' @param linecolor color for the prediction line
 #' @param fillcolor color for the prediction confidence band
+#' @param ... additional arguments passed to `predict.splinemixmeta()`
 #'
 #' @details
 #' This is not a very general plotting function. It is intended to provide a basic feature
@@ -17,14 +18,12 @@
 #' - Shows the data points with 95% confidence intervals obtains as +/- 2 times the standard errors (`se` or `diag(S)`).
 #' - returns a `ggplot2` object that can be further updated.
 #'
+#' @method plot splinemixmeta
+#' 
 #' @returns ggplot2 object
 #' @export
 plot.splinemixmeta <- function(object, xvar, title, xlab, ylab, ylim, linecolor = "blue", fillcolor = "blue", ...) {
-  if (!requireNamespace("ggplot2", quietly = TRUE))
-    stop(
-      "Package 'ggplot2' is required to use `plot.splinemixmeta\n",
-      call. = FALSE
-    )
+
   if(!inherits(object, "splinemixmeta"))
     stop("object must be of class 'splinemixmeta'")
   if(missing(xvar)) {
