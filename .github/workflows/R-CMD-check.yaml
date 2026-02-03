@@ -40,6 +40,10 @@ jobs:
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
 
+      - name: Ensure ggplot2 is installed (macOS only)
+        if: ${{ matrix.config.os == 'macos-latest' }}
+        run: Rscript -e 'install.packages("ggplot2", type = "source")'
+
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: any::rcmdcheck
