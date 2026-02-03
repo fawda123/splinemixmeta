@@ -1,0 +1,26 @@
+# Authors and Citation
+
+## Authors
+
+- **Perry de Valpine**. Author, maintainer.
+  [](https://orcid.org/0000-0002-8329-6796)
+
+- **Melissa Foley**. Author. [](https://orcid.org/0000-0002-5832-6404)
+
+- **Marcus Beck**. Author. [](https://orcid.org/0000-0002-4996-0059)
+
+- **David Senn**. Author. [](https://orcid.org/0000-0002-4869-3550)
+
+## Citation
+
+de Valpine P, Foley M, Beck M, Senn D (2026). *splinemixmeta: Additive
+Mixed Meta-Analysis with Spline Meta-Regression*. R package version
+1.0.0, <https://fawda123.github.io/splinemixmeta/>.
+
+    @Manual{,
+      title = {splinemixmeta: Additive Mixed Meta-Analysis with Spline Meta-Regression},
+      author = {Perry {de Valpine} and Melissa Foley and Marcus Beck and David Senn},
+      year = {2026},
+      note = {R package version 1.0.0},
+      url = {https://fawda123.github.io/splinemixmeta/},
+    }
