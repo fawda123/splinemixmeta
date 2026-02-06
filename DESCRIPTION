@@ -8,23 +8,11 @@ Authors@R: c(
       email = "pdevalpine@berkeley.edu",
       comment = c(ORCID = "0000-0002-8329-6796")
     ),
-    person(given = "Melissa",
-      family = "Foley",
-      role = c("aut"),
-      email = "melissaf@sfei.org",
-      comment = c(ORCID = "0000-0002-5832-6404")
-    ),
     person(given = "Marcus",
       family = "Beck",
       role = c("aut"),
       email = "mbeck@tbep.org",
       comment = c(ORCID = "0000-0002-4996-0059")
-    ),
-    person(given = "David",
-      family = "Senn",
-      role = c("aut"),
-      email = "davids@sfei.org",
-      comment = c(ORCID = "0000-0002-4869-3550")
     )
   )
 Description: Fit additive mixed meta-analysis (AMMA) models, extending
