@@ -1,7 +1,7 @@
 # Contributing to splinemixmeta
 
 This outlines how to propose a change to splinemixmeta.
-For a detailed discussion on contributing to this and other tidyverse packages, please see the [development contributing guide](https://rstd.io/tidy-contrib) and our [code review principles](https://code-review.tidyverse.org/).
+For a detailed discussion on best practices for contributing to packages, please see the [development contributing guide](https://rstd.io/tidy-contrib) and [code review principles](https://code-review.tidyverse.org/).
 
 ## Fixing typos
 
@@ -14,15 +14,15 @@ You can find the `.R` file that generates the `.Rd` by reading the comment in th
 If you want to make a bigger change, it's a good idea to first file an issue and make sure someone from the team agrees that it’s needed. 
 If you’ve found a bug, please file an issue that illustrates the bug with a minimal 
 [reprex](https://www.tidyverse.org/help/#reprex) (this will also help you write a unit test, if needed).
-See our guide on [how to create a great issue](https://code-review.tidyverse.org/issues/) for more advice.
+See this guide on [how to create a great issue](https://code-review.tidyverse.org/issues/) for more advice.
 
 ### Pull request process
 
-*   Fork the package and clone onto your computer. If you haven't done this before, we recommend using `usethis::create_from_github("perrydv/splinemixmeta", fork = TRUE)`.
+*   Fork the package and clone onto your computer. If you haven't done this before, try using `usethis::create_from_github("perrydv/splinemixmeta", fork = TRUE)`.
 
 *   Install all development dependencies with `devtools::install_dev_deps()`, and then make sure the package passes R CMD check by running `devtools::check()`. 
     If R CMD check doesn't pass cleanly, it's a good idea to ask for help before continuing. 
-*   Create a Git branch for your pull request (PR). We recommend using `usethis::pr_init("brief-description-of-change")`.
+*   Create a Git branch for your pull request (PR). Try using `usethis::pr_init("brief-description-of-change")`.
 
 *   Make your changes, commit to git, and then create a PR by running `usethis::pr_push()`, and following the prompts in your browser.
     The title of your PR should briefly describe the change.
@@ -32,7 +32,7 @@ See our guide on [how to create a great issue](https://code-review.tidyverse.org
 
 ### Code style
 
-*   New code should follow the tidyverse [style guide](https://style.tidyverse.org). 
+*   New code should follow this [style guide](https://style.tidyverse.org). 
     You can use [Air](https://posit-dev.github.io/air/) to apply this style, but please don't restyle code that has nothing to do with your PR.  
 
 *  We use [roxygen2](https://cran.r-project.org/package=roxygen2), with [Markdown syntax](https://cran.r-project.org/web/packages/roxygen2/vignettes/rd-formatting.html), for documentation.  
