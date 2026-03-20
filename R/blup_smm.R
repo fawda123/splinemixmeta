@@ -98,7 +98,7 @@ blup.splinemixmeta <- function (object, se = FALSE, pi = FALSE, vcov = FALSE, pi
     else getZPZlist(Zlist, nalist, Psi)
 
     allPsi <- object$Psi
-    allZPZlist <- getZPZlist(allZlist, nalist, allPsi) # added by Perry
+    allZPZlist <- if (!is.null(allZlist)) getZPZlist(allZlist, nalist, allPsi) else NULL # added by Perry
     # if (!is.null(ZPZlist)) {
     #     Ulist <- mapply(function(ZPZ, S) chol(ZPZ + S), ZPZlist,
     #         Slist, SIMPLIFY = FALSE)
